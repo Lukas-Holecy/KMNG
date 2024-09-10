@@ -1,4 +1,4 @@
-namespace Brochet.Services.Analysis.Models
+namespace Holecy.Services.Analysis.Models
 {
     public class ApiInfo
     {
