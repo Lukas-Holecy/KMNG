@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup Label="Basic Settings">
+    <Company>Lukas Holecy</Company>
+    <Authors>Lukas Holecy</Authors>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <OutputPath>$(SolutionDir)bin\$(Configuration)\</OutputPath>
+    <TargetFramework>net6.0</TargetFramework>
+    <Version>1.0.0</Version>
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="$(SolutionDir)stylecop.json" />
+  </ItemGroup>
+</Project>
