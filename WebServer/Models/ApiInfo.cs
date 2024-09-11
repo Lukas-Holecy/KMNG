@@ -1,11 +1,11 @@
-namespace Holecy.Services.Analysis.Models;
+namespace Holecy.Services.Models;
 
 using System.Globalization;
 using System.Resources;
 
 public class ApiInfo
 {
-    private static readonly ResourceManager ResourceManager = new ResourceManager("Brochet.Services.Analysis.Resources", typeof(ApiInfo).Assembly);
+    private static readonly ResourceManager ResourceManager = new ResourceManager("Holecy.Services.Resources.AapiInfoResources", typeof(ApiInfo).Assembly);
         
     public string Name => ResourceManager.GetString("Name", CultureInfo.CurrentCulture)!;
 

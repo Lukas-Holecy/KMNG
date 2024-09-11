@@ -118,11 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Description" xml:space="preserve">
-    <value>Service for converting online manga books into kindle.</value>
+    <value>Service for analyzing Word documents</value>
     <comment/>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>KMNG</value>
+    <value>Brochet analyzer</value>
     <comment/>
   </data>
 </root>

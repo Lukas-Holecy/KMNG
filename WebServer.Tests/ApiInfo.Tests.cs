@@ -1,6 +1,6 @@
-﻿namespace WebServer.Tests;
+﻿namespace Holecy.Services.Tests;
 
-using Holecy.Services.Analysis.Models;
+using Holecy.Services.Models;
 using System.Globalization;
 using Xunit;
 
@@ -10,7 +10,7 @@ public class ApiInfoTests
     public void Name_ReturnsExpectedValue()
     {
         var apiInfo = new ApiInfo();
-        var expectedName = "Expected Name";
+        var expectedName = "KMNG";
 
         var name = apiInfo.Name;
 
@@ -34,14 +34,11 @@ public class ApiInfoTests
     [Fact]
     public void AssemblyVersion_ReturnsExpectedValue()
     {
-        // Arrange
         var apiInfo = new ApiInfo();
         var expectedAssemblyVersion = typeof(ApiInfo).Assembly.GetName().Version?.ToString();
 
-        // Act
         var assemblyVersion = apiInfo.AssemblyVersion;
 
-        // Assert
         Assert.Equal(expectedAssemblyVersion, assemblyVersion);
     }
 
@@ -50,7 +47,7 @@ public class ApiInfoTests
     {
         // Arrange
         var apiInfo = new ApiInfo();
-        var expectedDescription = "Expected Description"; // Replace with the actual expected value from your resources
+        var expectedDescription = "Service for converting online manga books into kindle."; // Replace with the actual expected value from your resources
 
         // Act
         var description = apiInfo.Description;
