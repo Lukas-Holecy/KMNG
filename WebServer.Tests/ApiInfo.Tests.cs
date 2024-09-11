@@ -4,8 +4,14 @@ using Holecy.Services.Models;
 using System.Globalization;
 using Xunit;
 
+/// <summary>
+/// Tests for the <see cref="ApiInfo"/> class.
+/// </summary>
 public class ApiInfoTests
 {
+    /// <summary>
+    /// Tests that the <see cref="ApiInfo"/> returns the expected name.
+    /// </summary>
     [Fact]
     public void Name_ReturnsExpectedValue()
     {
@@ -17,6 +23,9 @@ public class ApiInfoTests
         Assert.Equal(expectedName, name);
     }
 
+    /// <summary>
+    /// Tests that the <see cref="ApiInfo"/> returns the expected version.
+    /// </summary>
     [Fact]
     public void Version_ReturnsExpectedValue()
     {
@@ -31,6 +40,9 @@ public class ApiInfoTests
         Assert.Equal(expectedVersion, version);
     }
 
+    /// <summary>
+    /// Tests that the <see cref="ApiInfo"/> returns the expected assembly version.
+    /// </summary>
     [Fact]
     public void AssemblyVersion_ReturnsExpectedValue()
     {
@@ -42,17 +54,17 @@ public class ApiInfoTests
         Assert.Equal(expectedAssemblyVersion, assemblyVersion);
     }
 
+    /// <summary>
+    /// Tests that the <see cref="ApiInfo"/> returns the expected description.
+    /// </summary>
     [Fact]
     public void Description_ReturnsExpectedValue()
     {
-        // Arrange
         var apiInfo = new ApiInfo();
-        var expectedDescription = "Service for converting online manga books into kindle."; // Replace with the actual expected value from your resources
+        var expectedDescription = "Service for converting online manga books into kindle.";
 
-        // Act
         var description = apiInfo.Description;
 
-        // Assert
         Assert.Equal(expectedDescription, description);
     }
 }
