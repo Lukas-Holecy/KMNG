@@ -26,6 +26,10 @@ public class ApiInfoController : ControllerBase
         this.apiInfo = new ApiInfo();
     }
 
+    /// <summary>
+    /// Gets the name of the API.
+    /// </summary>
+    /// <returns>The name of the API.</returns>
     [HttpGet("name")]
     public ActionResult<string> GetName()
     {
@@ -42,18 +46,30 @@ public class ApiInfoController : ControllerBase
         return this.apiInfo.Version;
     }
 
+    /// <summary>
+    /// Gets the description of the API.
+    /// </summary>
+    /// <returns>The description of the API.</returns>
     [HttpGet("description")]
     public ActionResult<string> GetDescription()
     {
         return this.apiInfo.Description;
     }
 
+    /// <summary>
+    /// Gets the assembly version of the API.
+    /// </summary>
+    /// <returns>Version of the API's assembly.</returns>
     [HttpGet("assemblyVersion")]
     public ActionResult<string> GetAssemblyVersion()
     {
         return this.apiInfo.AssemblyVersion;
     }
 
+    /// <summary>
+    /// Gets all information about the API in a JSON form.
+    /// </summary>
+    /// <returns>Information about the API in JSON form.</returns>
     [HttpGet("allInfo")]
     public ActionResult<string> GetAll()
     {
