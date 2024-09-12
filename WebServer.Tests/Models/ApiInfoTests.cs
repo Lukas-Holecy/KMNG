@@ -1,7 +1,11 @@
-﻿namespace Holecy.Services.Tests;
+﻿// <copyright file="ApiInfoTests.cs" company="Lukas Holecy">
+//     Copyright (c) Lukas Holecy. All rights reserved.
+// </copyright>
 
+namespace Holecy.Services.Tests.Models;
+
+using System;
 using Holecy.Services.Models;
-using System.Globalization;
 using Xunit;
 
 /// <summary>
@@ -15,7 +19,7 @@ public class ApiInfoTests
     [Fact]
     public void Name_ReturnsExpectedValue()
     {
-        var apiInfo = new ApiInfo();
+        var apiInfo = CreateApiInfo();
         var expectedName = "KMNG";
 
         var name = apiInfo.Name;
@@ -30,7 +34,7 @@ public class ApiInfoTests
     public void Version_ReturnsExpectedValue()
     {
         // Arrange
-        var apiInfo = new ApiInfo();
+        var apiInfo = CreateApiInfo();
         var expectedVersion = "1";
 
         // Act
@@ -46,7 +50,7 @@ public class ApiInfoTests
     [Fact]
     public void AssemblyVersion_ReturnsExpectedValue()
     {
-        var apiInfo = new ApiInfo();
+        var apiInfo = CreateApiInfo();
         var expectedAssemblyVersion = typeof(ApiInfo).Assembly.GetName().Version?.ToString();
 
         var assemblyVersion = apiInfo.AssemblyVersion;
@@ -60,11 +64,16 @@ public class ApiInfoTests
     [Fact]
     public void Description_ReturnsExpectedValue()
     {
-        var apiInfo = new ApiInfo();
+        var apiInfo = CreateApiInfo();
         var expectedDescription = "Service for converting online manga books into kindle.";
 
         var description = apiInfo.Description;
 
         Assert.Equal(expectedDescription, description);
+    }
+
+    private static ApiInfo CreateApiInfo()
+    {
+        return new ApiInfo();
     }
 }
