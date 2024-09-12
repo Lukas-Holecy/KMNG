@@ -33,7 +33,7 @@ public class ApiInfoController : ControllerBase
     [HttpGet("name")]
     public ActionResult<string> GetName()
     {
-        return this.apiInfo.Name;
+        return this.Ok(this.apiInfo.Name);
     }
 
     /// <summary>
@@ -43,7 +43,7 @@ public class ApiInfoController : ControllerBase
     [HttpGet("version")]
     public ActionResult<string> GetVersion()
     {
-        return this.apiInfo.Version;
+        return this.Ok(this.apiInfo.Version);
     }
 
     /// <summary>
@@ -53,7 +53,7 @@ public class ApiInfoController : ControllerBase
     [HttpGet("description")]
     public ActionResult<string> GetDescription()
     {
-        return this.apiInfo.Description;
+        return this.Ok(this.apiInfo.Description);
     }
 
     /// <summary>
@@ -63,7 +63,7 @@ public class ApiInfoController : ControllerBase
     [HttpGet("assemblyVersion")]
     public ActionResult<string> GetAssemblyVersion()
     {
-        return this.apiInfo.AssemblyVersion;
+        return this.Ok(this.apiInfo.AssemblyVersion);
     }
 
     /// <summary>
@@ -73,6 +73,6 @@ public class ApiInfoController : ControllerBase
     [HttpGet("allInfo")]
     public ActionResult<string> GetAll()
     {
-        return JsonSerializer.Serialize(this.apiInfo);
+        return this.Ok(JsonSerializer.Serialize(this.apiInfo));
     }
 }
