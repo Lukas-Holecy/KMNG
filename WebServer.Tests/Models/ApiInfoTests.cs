@@ -4,7 +4,6 @@
 
 namespace Holecy.Services.Tests.Models;
 
-using System;
 using Holecy.Services.Models;
 using Xunit;
 
@@ -19,10 +18,9 @@ public class ApiInfoTests
     [Fact]
     public void Name_ReturnsExpectedValue()
     {
-        var apiInfo = CreateApiInfo();
         var expectedName = "KMNG";
 
-        var name = apiInfo.Name;
+        var name = ApiInfo.Name;
 
         Assert.Equal(expectedName, name);
     }
@@ -33,14 +31,10 @@ public class ApiInfoTests
     [Fact]
     public void Version_ReturnsExpectedValue()
     {
-        // Arrange
-        var apiInfo = CreateApiInfo();
         var expectedVersion = "1";
 
-        // Act
-        var version = apiInfo.Version;
+        var version = ApiInfo.Version;
 
-        // Assert
         Assert.Equal(expectedVersion, version);
     }
 
@@ -50,10 +44,9 @@ public class ApiInfoTests
     [Fact]
     public void AssemblyVersion_ReturnsExpectedValue()
     {
-        var apiInfo = CreateApiInfo();
         var expectedAssemblyVersion = typeof(ApiInfo).Assembly.GetName().Version?.ToString();
 
-        var assemblyVersion = apiInfo.AssemblyVersion;
+        var assemblyVersion = ApiInfo.AssemblyVersion;
 
         Assert.Equal(expectedAssemblyVersion, assemblyVersion);
     }
@@ -64,16 +57,10 @@ public class ApiInfoTests
     [Fact]
     public void Description_ReturnsExpectedValue()
     {
-        var apiInfo = CreateApiInfo();
         var expectedDescription = "Service for converting online manga books into kindle.";
 
-        var description = apiInfo.Description;
+        var description = ApiInfo.Description;
 
         Assert.Equal(expectedDescription, description);
-    }
-
-    private static ApiInfo CreateApiInfo()
-    {
-        return new ApiInfo();
     }
 }

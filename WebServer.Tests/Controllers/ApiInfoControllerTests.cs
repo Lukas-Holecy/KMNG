@@ -4,7 +4,6 @@
 
 namespace Holecy.Services.Tests.Controllers;
 
-using System.Text.Json;
 using Holecy.Services.Controllers;
 using Holecy.Services.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -23,11 +22,17 @@ public class ApiInfoControllerTests
     {
         // Arrange
         var controller = new ApiInfoController();
-        var expectedApiInfo = new ApiInfo();
-        var expectedJson = JsonSerializer.Serialize(expectedApiInfo);
+        var expectedJson = """
+            {
+              "Name": "KMNG",
+              "Version": "1",
+              "AssemblyVersion": "1.0.0.0",
+              "Description": "Service for converting online manga books into kindle."
+            }
+            """;
 
         // Act
-        var result = controller.GetAll() as ActionResult<string>;
+        var result = controller.GetAll();
         var okResult = result.Result as OkObjectResult;
 
         // Assert
