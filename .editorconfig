@@ -1,2 +1,10 @@
 # Maximum line length
 max_line_length = 120
+
+[*.cs]
+
+# IDE0065: Misplaced using directive
+csharp_using_directive_placement = inside_namespace
+
+# IDE0008: Use explicit type
+csharp_style_var_when_type_is_apparent = true
