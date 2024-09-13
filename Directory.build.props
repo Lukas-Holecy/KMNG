@@ -11,7 +11,9 @@
     <AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>    
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>    
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(SolutionDir)strongname.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <AdditionalFiles Include="$(SolutionDir)stylecop.json" />
