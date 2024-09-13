@@ -4,7 +4,7 @@
 
 namespace Holecy.Services.Controllers;
 
-using System.Text.Json;
+using System.Text.Json.Nodes;
 using Holecy.Services.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,16 +14,15 @@ using Microsoft.AspNetCore.Mvc;
 /// <seealso cref="ApiInfo"/>
 [ApiController]
 [Route("api/[controller]")]
+[System.Diagnostics.CodeAnalysis.SuppressMessage(
+    "Maintainability", "CA1515:Consider making public types internal", Justification = "WebAPI controller.")]
 public class ApiInfoController : ControllerBase
 {
-    private readonly ApiInfo apiInfo;
-
     /// <summary>
     /// Initializes a new instance of the <see cref="ApiInfoController"/> class.
     /// </summary>
     public ApiInfoController()
     {
-        this.apiInfo = new ApiInfo();
     }
 
     /// <summary>
@@ -33,7 +32,7 @@ public class ApiInfoController : ControllerBase
     [HttpGet("name")]
     public ActionResult<string> GetName()
     {
-        return this.Ok(this.apiInfo.Name);
+        return this.Ok(ApiInfo.Name);
     }
 
     /// <summary>
@@ -43,7 +42,7 @@ public class ApiInfoController : ControllerBase
     [HttpGet("version")]
     public ActionResult<string> GetVersion()
     {
-        return this.Ok(this.apiInfo.Version);
+        return this.Ok(ApiInfo.Version);
     }
 
     /// <summary>
@@ -53,7 +52,7 @@ public class ApiInfoController : ControllerBase
     [HttpGet("description")]
     public ActionResult<string> GetDescription()
     {
-        return this.Ok(this.apiInfo.Description);
+        return this.Ok(ApiInfo.Description);
     }
 
     /// <summary>
@@ -63,7 +62,7 @@ public class ApiInfoController : ControllerBase
     [HttpGet("assemblyVersion")]
     public ActionResult<string> GetAssemblyVersion()
     {
-        return this.Ok(this.apiInfo.AssemblyVersion);
+        return this.Ok(ApiInfo.AssemblyVersion);
     }
 
     /// <summary>
@@ -73,6 +72,14 @@ public class ApiInfoController : ControllerBase
     [HttpGet("allInfo")]
     public ActionResult<string> GetAll()
     {
-        return this.Ok(JsonSerializer.Serialize(this.apiInfo));
+        var jsonObject = new JsonObject
+        {
+            ["Name"] = ApiInfo.Name,
+            ["Version"] = ApiInfo.Version,
+            ["AssemblyVersion"] = ApiInfo.AssemblyVersion,
+            ["Description"] = ApiInfo.Description,
+        };
+
+        return this.Ok(jsonObject.ToString());
     }
 }
