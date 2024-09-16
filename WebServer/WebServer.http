@@ -1,6 +1,6 @@
-@WebServer_HostAddress = http://localhost:5282
+@WebServer_HostAddress = https://localhost:7049
 
-GET {{WebServer_HostAddress}}/weatherforecast/
+GET {{WebServer_HostAddress}}/api/v1/ApiInfoController/name/
 Accept: application/json
 
 ###
