@@ -16,7 +16,7 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
-        _ = builder.Services.AddControllers();
+        _ = builder.Services.AddControllersWithViews();
         _ = builder.Services.AddEndpointsApiExplorer();
         _ = builder.Services.AddSwaggerGen();
 
@@ -36,6 +36,8 @@ public class Program
         _ = app.UseHttpsRedirection();
         _ = app.UseAuthorization();
         _ = app.MapControllers();
+
+        _ = app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
         app.Run();
     }
