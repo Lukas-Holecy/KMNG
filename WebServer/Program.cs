@@ -4,6 +4,9 @@
 
 namespace Holecy.Services;
 
+using Holecy.Services.Controllers;
+using Microsoft.AspNetCore.Mvc.Razor;
+
 /// <summary>
 /// Represents the entry point of the application.
 /// </summary>
@@ -15,10 +18,18 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Add services to the container.
-        _ = builder.Services.AddControllersWithViews();
+        var viewsPath = @"..\WebServer.Views\";
+        _ = builder.Services.AddControllersWithViews()
+            .AddApplicationPart(typeof(HomeController).Assembly)
+            .AddRazorRuntimeCompilation();
         _ = builder.Services.AddEndpointsApiExplorer();
         _ = builder.Services.AddSwaggerGen();
+
+        // Configure Razor View Engine options
+        _ = builder.Services.Configure<RazorViewEngineOptions>(options =>
+            {
+                options.ViewLocationFormats.Add(viewsPath);
+            });
 
         var app = builder.Build();
 

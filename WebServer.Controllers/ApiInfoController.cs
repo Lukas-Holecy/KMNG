@@ -14,8 +14,6 @@ using Microsoft.AspNetCore.Mvc;
 /// <seealso cref="ApiInfo"/>
 [ApiController]
 [Route("api/v1/[controller]")]
-[System.Diagnostics.CodeAnalysis.SuppressMessage(
-    "Maintainability", "CA1515:Consider making public types internal", Justification = "WebAPI controller.")]
 public class ApiInfoController : ControllerBase
 {
     /// <summary>
