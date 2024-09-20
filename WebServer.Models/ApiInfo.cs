@@ -10,9 +10,9 @@ using System.Resources;
 /// <summary>
 /// Represents information about this RestAPI.
 /// </summary>
-internal sealed class ApiInfo
+public sealed class ApiInfo
 {
-    private static readonly ResourceManager ResourceManager = new("Holecy.Services.Resources.AapiInfoResources", typeof(ApiInfo).Assembly);
+    private static readonly ResourceManager ResourceManager = new("Holecy.Services.Models.Resources.ApiInfoResources", typeof(ApiInfo).Assembly);
 
     /// <summary>
     /// Gets the name of the rest api.

@@ -4,6 +4,9 @@
 
 namespace Holecy.Services;
 
+using Holecy.Services.Views;
+using Microsoft.Extensions.FileProviders;
+
 /// <summary>
 /// Represents the entry point of the application.
 /// </summary>
@@ -15,8 +18,13 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Add services to the container.
-        _ = builder.Services.AddControllersWithViews();
+        var viewsPath = Path.GetFullPath(@"../WebServer.Views/");
+        _ = builder.Services.AddControllersWithViews()
+            .AddApplicationPart(typeof(ViewsAssemblyMarker).Assembly)
+            .AddRazorRuntimeCompilation(options =>
+            {
+                options.FileProviders.Add(new PhysicalFileProvider(viewsPath));
+            });
         _ = builder.Services.AddEndpointsApiExplorer();
         _ = builder.Services.AddSwaggerGen();
 
