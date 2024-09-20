@@ -7,6 +7,10 @@
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <EmbedRazorGenerateSources>true</EmbedRazorGenerateSources>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="Views\**\*.cshtml" />
+  </ItemGroup>
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
